@@ -36,7 +36,7 @@ namespace PharmacyMedicineSupply.Controllers
             using (var httpClient = new HttpClient())
             {
                 StringContent content = new StringContent(JsonConvert.SerializeObject(credentials),Encoding.UTF8,"application/json");
-                var response = await httpClient.PostAsync("https://localhost:44300/User/Login", content);
+                var response = await httpClient.PostAsync("", content);
                 if (response.IsSuccessStatusCode)
                 {
                     var result = await response.Content.ReadAsStringAsync();

@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using PharmacyMedicineSupply.Provider;
 
 namespace PharmacyMedicineSupply
 {
@@ -26,6 +27,7 @@ namespace PharmacyMedicineSupply
         {
             services.AddControllersWithViews();
             services.AddSession(options => { options.IdleTimeout = TimeSpan.FromMinutes(30); });
+            services.AddTransient<IRepSchedule, RepScheduleProvider>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
